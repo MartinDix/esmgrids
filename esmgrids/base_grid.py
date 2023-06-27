@@ -291,4 +291,9 @@ def make_corners(x, y, dx, dy):
     assert(np.all(clat[2, -1, :] == np.max(y) + dy_half[-1, :]))
     assert(np.all(clat[3, -1, :] == np.max(y) + dy_half[-1, :]))
 
+    # Clip pole values which aren't handled correctly for UM v grid with
+    # centres at poles
+    max_extent = 90.0
+    clat = np.clip(clat, -max_extent, max_extent)
+
     return clat, clon, None, None, None, None
