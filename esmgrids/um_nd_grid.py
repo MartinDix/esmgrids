@@ -6,7 +6,7 @@ import netCDF4
 import re
 from .base_grid import BaseGrid
 
-class UMGrid(BaseGrid):
+class UMGrid_nd(BaseGrid):
 
     def __init__(self, grid, mask_file=None):
         self.type = 'Arakawa C'
@@ -55,5 +55,5 @@ class UMGrid(BaseGrid):
         else:
             raise Exception(f"Incorrect grid {grid} specified in UMGrid")
 
-        super(UMGrid, self).__init__(x_t=lon, y_t=lat, mask_t=mask,
+        super(UMGrid_nd, self).__init__(x_t=lon, y_t=lat, mask_t=mask,
                                      description=description)
